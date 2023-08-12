@@ -1,0 +1,1415 @@
+
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url('font/Press_Start_2P/PressStart2P-Regular.ttf');
+  }
+  @font-face {
+    font-family: "RocknRoll One";
+    src: url('font/RocknRoll\ One/RocknRollOne-Regular.ttf');
+  }
+@font-face {
+  font-family: "Yanone Kaffeesatz";
+  src: url('font/Yanone_Kaffeesatz/static/YanoneKaffeesatz-Regular.ttf');
+}
+@font-face {
+  font-family: "Amatic SC Bold";
+  src: url("font/Amatic_SC/AmaticSC-Bold.ttf")
+}
+@font-face {
+  font-family: 'Russo One';
+  src: url("font/Russo_One/RussoOne-Regular.ttf")
+}
+
+
+
+
+
+
+body {
+    background-image: url(back/body.jpg);
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-size: cover;
+    
+}
+
+.about {
+    padding: 5px 0;
+    background-color:  #1b3e8b;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-title {
+    font-family: sans-serif;
+    font-size: 60px;
+    text-align: center;
+    position: relative;
+    opacity: .8;
+    color:  #f8ff98;
+    text-shadow: 4px 4px 0 blueviolet;
+  }
+  /* VIDEO */
+  .video {
+    top: -10%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    left: 50%;
+    z-index: 0;
+    position: absolute;
+    size: cover;
+  }
+
+
+
+  
+  @media (max-width: 768px) {
+    .about {
+      background: url(back/blue.png)
+        0 -15px no-repeat #0e438b;
+       
+      background-size: 100% 175%;
+      
+    }
+    .body{
+      width:100%;
+    }
+    .about-title {
+        font-family: sans-serif;
+        font-size: 40px;
+        text-align: center;
+        position: relative;
+        opacity: 0.85;
+        text-shadow: 2.5px 2.5px 0 blueviolet;
+    }
+    
+    .video,
+    .about-header,
+    .about-footer,
+    .about-header-bg-2 {
+      display: none;
+    }
+  }
+  @media (max-width: 480px) {
+    .about-title{
+      font-size: 20px;
+      text-shadow: 1px 1px 0 blueviolet;
+    }
+  }
+
+
+
+
+
+
+
+
+
+/* Оформление панели */
+#side-checkbox {
+  display: none;
+}
+.side-panel {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: -360px;
+  background: #337AB7;
+  transition: all 0.5s;   
+  width: 320px;
+  height: 100vh;
+  box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+  color: #FFF;
+  padding: 40px 20px;
+}
+.side-title {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #BFE2FF;
+}
+.punkt {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+A:link {color: #FFF; text-decoration: none}
+A:visited {color: #FFF; text-decoration: none}
+A:active {color: #FFF; text-decoration: none}
+A:hover {color: rgb(0, 0, 0); font-weight:bold;}
+.btn {width: 100%;}
+
+/* Оформление кнопки на странице */
+.side-button-1-wr {
+
+  text-align: center; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
+  
+
+}
+.side-button-1 .side-b {
+  width:120%;
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  margin-left:-20%;
+  text-decoration: none;
+  vertical-align:middle;
+  position: relative;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 6px 10px;
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase; 
+  font-family: 'Roboto Condensed', Тahoma, sans-serif;
+  background: #337AB7;
+  cursor: pointer; 
+  border: 2px solid #BFE2FF;
+}
+.side-button-1 .side-b:hover,
+.side-button-1 .side-b:active,
+.side-button-1 .side-b:focus {
+  color: #FFF;
+}
+.side-button-1 .side-b:after,
+.side-button-1 .side-b:before {
+  position: absolute;
+  height: 4px;
+  left: 50%;
+  bottom: -6px;
+  content: "";
+  transition: all 280ms ease-in-out;
+  width: 0;
+  
+}
+.side-button-1 .side-open:after,
+.side-button-1 .side-open:before {
+  background: green;
+}
+.side-button-1 .side-close:after,
+.side-button-1 .side-close:before {
+  background: rgb(195, 0, 255);
+}
+
+
+.side-button-1 .side-b:before {
+  top: -6px;
+}
+.side-button-1 .side-b:hover:after,
+.side-button-1 .side-b:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+
+/* Переключатели кнопки 1 */
+.side-button-1 .side-close {
+  display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-open {
+  display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-close {
+  display: block;
+}
+#side-checkbox:checked + .side-panel {
+  left: 0;
+}
+
+
+@media (max-width: 768px) {
+  .side-button-1 .side-b {
+    top: 7px;
+    margin: 1px;
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 1px 5px;
+    border: 1px solid #BFE2FF;
+    height: fit-content;
+  }
+  .side-button-1 .side-b:after,
+  .side-button-1 .side-b:before {
+  position: absolute;
+  height: 2px;
+  left: 50%;
+  bottom: -3px;
+  top: -3px;
+  content: "";
+  transition: all 280ms ease-in-out;
+  width: 0;
+  }
+  .side-button-1{
+    height: 15px;
+  }}
+  
+
+
+
+
+
+
+
+
+
+  /* Оформление кнопки на странице */
+.side-button-3-wr {
+  text-align: top; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
+}
+.side-button-3 .side-b {
+  
+  margin: 10px;
+  text-decoration: none;
+  position: relative;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 4px 10px;
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase; 
+  font-family: 'Roboto Condensed', Тahoma, sans-serif;
+  background: #337AB7;
+  cursor: pointer; 
+  border: 2px solid #BFE2FF;
+}
+.side-button-3 .side-b:hover,
+.side-button-3 .side-b:active,
+.side-button-3 .side-b:focus {
+  color: #FFF;
+}
+.side-button-3 .side-b:after,
+.side-button-3 .side-b:before {
+  position: absolute;
+  height: 4px;
+  left: 50%;
+  bottom: -6px;
+  content: "";
+  transition: all 280ms ease-in-out;
+  width: 0;
+  
+}
+.side-button-3 .side-open:after,
+.side-button-3 .side-open:before {
+  background: green;
+}
+.side-button-3 .side-close:after,
+.side-button-3 .side-close:before {
+  background: rgb(195, 0, 255);
+}
+
+
+.side-button-3 .side-b:before {
+  top: -6px;
+}
+.side-button-3 .side-b:hover:after,
+.side-button-3 .side-b:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+
+
+
+
+/* Оформление кнопки на панеле */
+.side-button-2 {
+  font-size: 30px;
+  border-radius: 25px;
+  position: absolute;
+  z-index: 1;
+  top: 3px;
+  right: 10px;
+  cursor: pointer;
+  transform: rotate(45deg);
+  color: #BFE2FF;    
+  transition: all 280ms ease-in-out;    
+}
+.side-button-2:hover {
+  transform: rotate(45deg) scale(1.1);    
+  color: #FFF;
+}
+
+
+
+
+/* ГЛАВНАЯ */
+
+
+
+
+
+
+
+.name {
+  
+  margin-left: 85%;
+  height: 120px;
+  background-image: url("back/forName.png");
+  width: 15%;
+  background-size: cover;
+  z-index: 6;
+}
+.G {
+  transform: translateY(35%) translateX(80%);
+  text-align: center;
+  color:bisque;
+  width: min-content;
+}
+
+
+
+
+@media (min-width: 1500px){
+
+  .HI {
+  color:coral;
+  font-size: x-large;
+
+  font-family: 'Press Start 2P', cursive;
+  
+  }
+  .slova {
+    background-image: url("back/cont.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    padding-top: 5%;
+    margin: 0 auto;
+    height: 120%;
+    grid-column: auto;
+    background-position:top;
+    background-repeat:repeat;
+    filter: brightness(84%);
+  }
+  
+.mainC {
+  display:flex;
+  position: absolute;
+  margin-top: 13%;
+  transform: translateX(60%);
+  z-index: 5;
+  background-color: rgb(64, 230, 221);
+  padding: 0.8%;
+  border-radius: 10px;
+}
+}
+.mainC:hover {
+  border: 5px solid rgb(204, 201, 0);
+  transform: translateX(58%);
+  
+}
+
+
+.M {
+  padding-top: 1%;
+}
+
+.slova {
+  background-image: url("back/cont.png");
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  padding-top: 5%;
+  margin: 0 auto;
+  height: 120%;
+  grid-column: auto;
+  background-position:top;
+  background-repeat:repeat;
+  filter: brightness(84%);
+}
+.Mcont {
+  display: flex;
+  position: relative;
+  transform: translateX(0%);
+  font-size: 18px;
+  margin-left: 14%;
+  margin-right: 18%;
+  z-index:5;
+  font-family: 'RocknRoll One', sans-serif;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px rgb(60, 34, 95);
+}
+
+
+@media (max-width: 480px) {
+  .Mcont{
+    font-size: 8px;
+    text-shadow: 0.2px 0.2px 0 rgb(187, 250, 255);
+  }
+
+}
+
+.chto {
+  position: relative;
+  margin-left: 16%;
+  margin-right: 15%;
+  padding-top: 1%;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: x-large;
+}
+.chit {
+  background-color: rgb(62, 0, 231);
+  border-radius: 10px;
+  width: fit-content;
+  color:beige;
+  padding: 0 1%;
+}
+.bL {
+  position: absolute;
+  margin-left: 20%;
+  border-radius: 7px;
+}
+.k {
+  text-align: center;
+}
+.hac {
+  background-image: url("pics/—Pngtree—hacker\ wearing\ hoodie\ and\ using_5415642.png");
+  background-size: auto;
+  position:absolute;
+  transform: translateY(90%);
+  margin-left: 35%;
+  z-index: 1000;
+}
+
+
+
+
+
+/* СЛАЙДЫ */
+.fine {
+  display: flex;
+  position: absolute;
+  margin: 0 auto;
+  clear: both;
+  border-radius: 15px;
+}
+.carousel {
+  display: flex;
+  margin: 7% auto;
+  transform: translateX(-1%);
+  border-radius: 15px;
+}
+.carousel-inner {
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.nap {
+  position: absolute;
+  z-index:100;
+  color:rgb(49, 13, 13);
+  text-shadow: 2px 2px darkblue;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+.txtNap {
+  font-size: 50px;
+  text-align: center;
+}
+.inf {
+  color:aliceblue;
+}
+.uwu {
+  color: #f8ff98;
+  text-shadow: 3px 3px darkblue;
+}
+
+@media (max-width: 480px){
+  .txtNap {
+    font-size: 15px;
+    text-align: center;
+    text-shadow: 0.3px 0.3px darkblue;
+  }
+
+}
+
+
+
+.carousel-indicators {
+  margin-left: 300px;
+}
+
+.li {
+  height: max-content;
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    display: flex;
+    margin: 3% auto;
+    transform: translateX(-4%);
+  }
+  
+}
+
+
+@media (max-width: 500px) {
+  .mainC {
+    display:flex;
+    position:relative;
+    margin-top: -25px;
+    
+    padding-bottom: 2px;
+    margin-left: 15%;
+    z-index: 5;
+    background-color: rgb(64, 230, 221);
+    padding-top: 1%;
+    padding-bottom: -2%;
+    border-radius: 10px;
+    width: 65%;
+    transform: translateX(7%);
+    height: min-content;
+  }
+  .mainC:hover {
+    background-color:none;
+    transform: translateX(45%);
+    height:30px;
+    width: fit-content;
+  }
+  .HI {
+    color:small;
+    font-size:10px;
+    font-family: 'Press Start 2P', cursive;
+    color:coral;
+    text-align: center;
+    
+  }
+  .HI:hover {
+    font-size:5px;
+  }
+  .slova{
+    width:80%;
+    background-size: cover;
+    height:550px;
+    margin-right: auto;
+  }
+  .ksl {
+    height: 300px;
+  }
+  .M {
+    margin-top:10%;
+    margin-left:-10%;
+    margin-right: -15%;
+    margin-bottom: 5%;
+  }
+  .Mcont {
+    font-size:xx-small;
+  }
+  .carousel {
+    width: 150%;
+  }
+  .chit {
+    font-size: large;
+    margin-top: 15%;
+    margin-left: -12%;
+  }
+  .wIT {
+    margin-top: 5%;
+    margin-left: -12%;
+    font-size: small;
+  }
+  .bL {
+    margin-left:12%;
+  }
+  .hac {
+    position: absolute;
+    right:-28%;
+    bottom:40%;
+    width: 250px;
+  }
+  .name {
+    width:27%;
+    height:10%;
+    margin-top:30px;
+    margin-bottom: 40px;
+    margin-left:73%;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .G{
+    font-size: small;
+    padding-top:6%;
+    padding-left: 4%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ПРОФЕССИИ НАСТОЯЩЕГО */
+.name2 {
+  display: flex;
+  position: relative;
+  text-align: right;
+  right: 0;
+  margin-left: 80%;
+  padding-right: 0;
+  height: 160px;
+  background-image: url(back/forName.png);
+  width: 20%;
+  background-size: cover;
+  z-index: 6;
+}
+.G2 {
+  transform: translateY(28%) translateX(75%);
+  text-align: center;
+  color:bisque;
+}
+.str {
+  transform: translateY(120%) translateX(0%);
+  text-align: center;
+  color:bisque;
+}
+.nast {
+  width: min-content;
+}
+
+.Scont {
+  background-image: url(back/фон\ для\ остальных.jpg);
+  display: flex;
+  position: relative;
+  z-index:-10;
+  margin-left: 4%;
+  margin-top: 2%;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  
+}
+
+
+
+
+@media (min-width: 1500px){
+  .Scont{
+    filter: drop-shadow(1px 1px 30px rgba(154, 211, 248, 0.5));
+  }
+  .auC{
+    filter: drop-shadow(1px 1px 30px rgba(154, 211, 248, 0.5));
+  }
+  .mnC{
+    filter: drop-shadow(1px 1px 30px rgba(154, 211, 248, 0.5));
+  }
+}
+
+
+
+
+.SPn {
+  background-color: rgb(255, 205, 144);
+  padding: 0.8%;
+  border-radius: 30px;
+  transform: translateX(180%);
+  margin-top: 1%;
+  margin-bottom: 0.8%;
+  width: min-content;
+}
+@media(max-width: 480px){
+  .SPn {
+    
+    padding: 1%;
+    border-radius: 18px;
+  }
+}
+.prog {
+  font-family: "Amatic SC Bold";
+}
+.Si {
+  display: flex;
+  position: relative;
+  background-image: url("pics/программист.jpg");
+  height: 500px;
+  background-size: cover;
+  transform: translateX(35%);
+  margin-bottom: 1%;
+  border-radius: 15px;
+}
+.Prtxt {
+  margin: 1% 10%;
+  font-size: x-large;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  text-align: justify;
+}
+.S2{
+  background-image: url("pics/аналитик.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.s22 {
+  margin-left: 5%;
+}
+
+.S3 {
+  background-image: url("pics/тестировщик.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.SS {
+  background-image: url("pics/Дизайнер.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.S4 {
+  background-image: url("pics/реклама.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.s44 {
+  margin-left: 6%;
+  margin-top:8%;
+}
+.s55{
+  width: max-content;
+}
+.S5 {
+  background-image: url("pics/dataScientist.jpeg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.S6 {
+  background-image: url("pics/менеджер.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+
+
+
+
+#toTop {
+  position:fixed;
+  z-index:9999;
+  bottom:10px;
+  right:10px;
+  background: url('pics/up.png') no-repeat;
+  width: 64px;
+  height: 64px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  text-decoration: none;
+  transition-delay: 100ms;
+}
+
+@media (max-width: 500px) {
+  #toTop {
+    width:40px;
+    height:40px;
+    background-size: cover;
+    bottom:25px;
+    right:60px;
+  }
+  .name2{
+    width:30%;
+    height:12%;
+    margin-top:30px;
+    margin-bottom: 40px;
+    margin-left:70%;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .G2 {
+    font-size: small;
+    margin-top:6%;
+  }
+  .str {
+    font-size: x-small;
+    
+  }
+  .nast {
+    margin-top:9%;
+    transform: translateX(-7%);
+  }
+  .s22 {
+    transform: translateX(240%);
+  }
+  .s44 {
+    transform:translateX(268%)
+  }
+}
+
+
+
+/* ПРОФЕССИИ БУДУЩЕГО */
+
+
+
+.FPn {
+  background-color: rgb(255, 205, 144);
+  padding: 0.8%;
+  border-radius: 30px;
+  transform: translateX(140%);
+  margin-top: 1%;
+  margin-bottom: 0.8%;
+  width: min-content;
+  text-align: center;
+}
+@media(max-width: 480px){
+  .FPn {
+    
+    padding: 1%;
+    border-radius: 18px;
+  }
+}
+
+.Pi {
+  background-image: url("pics/нейро.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:1%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+  
+}
+.p22 {
+  margin-left: -2%;
+  width: 18%;
+  margin-top: 3%;
+}
+.P2 {
+  background-image: url("pics/среды.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+
+.P3 {
+  background-image: url("pics/безопасность.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.P4 {
+  background-image: url("pics/профиль.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.P5 {
+  background-image: url("pics/исследователь.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.p55{
+  margin-top: 5%
+}
+.P6 {
+  background-image: url("pics/аудитор.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.p66 {
+  margin-left: 7%;
+  width: max-content;
+}
+.p77 {
+  width: 20%;
+  margin-left: -5%;
+  margin-top: 4%;
+}
+.P7 {
+  background-image: url("pics/bigdata.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.P8{
+  background-image: url("pics/лингвист.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.p99 {
+  width: max-content;
+  margin-left: 3%;
+}
+.P9{
+  background-image: url("pics/проповедник.jpg");
+  height: 450px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom: 3%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.P10{
+  background-image: url("pics/юрист.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.p1010{
+  width: max-content;
+  margin-left:6%;
+}
+.P11{
+  background-image: url("pics/интерфейсы.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+.P12 {
+  background-image: url("pics/интерфейсы.jpg");
+  height: 500px;
+  background-size: cover;
+  margin-top:2%;
+  margin-bottom:1%;
+  transform: translateX(35%);
+  border-radius: 15px;
+}
+
+@media (max-width: 500px) {
+  .Si{
+    height: 160px;
+  }
+  .t{
+    height: 160px;
+  }
+  .Prtxt {
+    font-size: large;
+  }
+}
+@media (max-width: 500px) {
+  .FPn {
+    width: 168px;
+    transform: translateX(15%);
+  }
+  .p66 {
+    transform: translateX(5%);
+    
+  }
+  .p77 {
+    transform: translateX(30%);
+  }
+  .h {
+    transform: translateX(25%);
+  }
+  .p1010 {
+    transform: translateX(10%);
+  }
+}
+
+
+/* ПОДХОДИТ ЛИ ТЕБЕ СФЕРА IT? */
+
+
+.G3 {
+  transform: translateY(47%) translateX(45%);
+  text-align: center;
+  color:bisque;
+  font-size: x-large;
+}
+
+
+.str2 {
+  transform: translateY(160%) translateX(-20%);
+  text-align: center;
+  color:bisque;
+  font-size: x-large;
+}
+
+
+.mnC {
+  background-image: url("back/maybe.jpg");
+  background-size: cover;
+  display: flex;
+  position: relative;
+  
+  margin-left: 4%;
+  margin-top: 2%;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 1%;
+}
+
+.k10{
+  text-align: center;
+  margin-top:3%;
+  text-shadow: 2px 2px 0 rgb(127, 113, 141);
+  
+}
+
+
+.vstp {
+  text-align: justify;
+  margin-left: 17%;
+  font-size: x-large;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+
+.headMB {
+  background-color: #f3f72d;
+  width:max-content;
+  padding: 1%;
+  border-radius: 20px;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  border-style:ridge;
+  border-color: black;
+}
+
+.HMB {
+  font-weight: 1000;
+  font-family: 'Russo One';
+}
+
+.photo {
+  background-image: url("pics/com.jpg");
+  background-size: cover;
+
+}
+.ph{
+  background-size: cover;
+  height: 500px;
+  margin-left: 17%;
+  border-radius: 30px;
+  margin-bottom: 2%;
+  border-style: groove;
+  border-width: 4px;
+  border-color: rgb(109, 95, 95);
+}
+.bright{
+  filter: brightness(90%);
+}
+
+.photo {
+  background-image: url("pics/com.jpg");
+  background-size: cover;
+}
+.photo2 {
+  background-image: url("pics/2.png");
+  background-size: cover;
+}
+.photo3 {
+  background-image: url("pics/3.jpg");
+  background-size: cover;
+}
+.photo4 {
+  background-image: url("pics/4.jpg");
+  background-size: cover;
+}
+.photo5 {
+  background-image: url("pics/5.jpg");
+  background-size: cover;
+}
+.photo6 {
+  background-image: url("pics/6.jpg");
+  background-size: cover;
+}
+.photo7 {
+  background-image: url("pics/7.jpg");
+  background-size: cover;
+}
+.photo8 {
+  background-image: url("pics/8.jpg");
+  background-size: cover;
+}
+.photo9 {
+  background-image: url("pics/9.jpg");
+  background-size: cover;
+}
+.photo10 {
+  background-image: url("pics/10.jpeg");
+  background-size: cover;
+}
+
+
+
+
+
+
+
+
+.wrapper
+{
+   width: 100%;
+   height: 100%;
+   display: table;
+}
+ 
+.main
+{
+   display: table-cell;
+   vertical-align: middle;
+   text-align: center;
+}
+ 
+.quiz-frame
+{
+   border: 0;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+   margin-left:35%;
+   margin-top: 2%
+}
+ 
+.quiz__head
+{
+   font-size: 20pt;
+   margin: 10px;
+   margin-bottom: 50px;
+}
+ 
+.head__content
+{
+   padding: 5px;
+}
+ 
+.quiz__body
+{
+   margin: 10px;
+}
+ 
+.quiz__footer
+{
+   position: absolute;
+   bottom: 0;
+   display: block;
+   width: 100%;
+}
+ 
+.footer__content
+{
+   padding: 5px;
+}
+ 
+.button
+{
+   border: 0;
+   border-radius: 10px;
+   background: #6477EB;
+   color: #fff;
+   padding: 10px 25px;
+   width: 70%;
+   font-size: 15pt;
+   display: block;
+   margin: 2px auto;
+   cursor: pointer;
+}
+ 
+.button_wrong
+{
+   background: #EB6465;
+}
+ 
+.button_correct
+{
+   background: #5EB97D;
+}
+ 
+.button_passive
+{
+   background: #B3B3B3;
+}
+
+
+@media (max-width: 500px) {
+  .G3{
+    font-size: xx-small;
+    margin-top: 6%;
+    margin-left: 4px;
+  }
+  .str2 {
+    font-size: xx-small;
+    
+  }
+  .nast2 {
+    margin-top: 6%;
+  }
+  .k10 {
+    font-size: larger;
+    text-shadow: 1px 1px 0 rgb(127, 113, 141);
+  }
+  .vstword {
+    font-size: large;
+  }
+  .ph {
+    height: 170px;
+  }
+  .headMB {
+    width: 290px;
+  }
+  .HMB {
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ОБ АВТОРЕ */
+
+.Au {
+  transform: translateY(35%) translateX(45%);
+  text-align: center;
+  color:bisque;
+  position: absolute;
+}
+
+.auC {
+  background-image: url("back/авторФон.svg");
+  display: flex;
+  position: relative;
+  
+  margin-left: 4%;
+  margin-top: 2%;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-bottom: 1%;
+}
+.all {
+  margin-top: 7%;
+  margin-left: 6%;
+  
+}
+.auH {
+  color:blanchedalmond;
+  font-family: 'Exo 2';
+}
+
+.whome {
+  color: blanchedalmond;
+  font-size: x-large;
+  font-family: 'Ubuntu';
+}
+
+.none{
+  background-color: none;
+  height: 25px;
+}
+.string {
+  
+  display: flex;
+  
+  margin-bottom: 4%;
+  margin-top: 3%;
+  margin-left: 6%;
+  z-index:100;
+}
+.contact{
+  z-index:100;
+}
+.me{
+  background-image: url("pics/Я\ овечька.png");
+  background-size: cover;
+  position: absolute;
+  margin-left:65%;
+  margin-top: 10%;
+  width:400px;
+  height: 600px;
+  border-radius: 180px;
+}
+@media (max-width: 500px){
+  .me {
+    width:160px;
+    height: 220px;
+    margin-left:25%;
+    margin-top:33%
+  }
+  .auH {
+    font-size: x-large;
+  }
+  .whome {
+    font-size: large;
+   
+  }
+  .jojo {
+    margin-top: 85%;
+  }
+  .string {
+    margin-right:5%
+  }
+  .Au {
+    font-size: small;
+    margin-top: 2%;
+    margin-left: 2%;
+  }
+}
+/* .k{
+  border-radius: 180px;
+  border-color: yellow 5px;
+  width: 30%;
+  margin-left: 100px;
+} */
